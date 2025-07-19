@@ -32,7 +32,121 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.input {
+  border: 1px solid black;
+  text-align: center;
+}
+
+
+
+
+.menu {
+  width: 80%;
+  left: -100%;
+  position: fixed;
+  text-align: left;
+  padding: 20px;
+  height: 100vh;
+  background: red;
+  transition: 1s;
+}
+
+.menu ul li {
+  padding: 10px 0px;
+}
+
+.activemenu {
+  left: 0%;
+}
+
+.micon {
+  position: absolute;
+  right: 10px;
+}
+
+.ModelOverlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .5);
+  display: none;
+}
+
+.ShowModel {
+  display: block;
+}
+
+.Modelcover {
+  position: fixed;
+  width: 30vw;
+  height: 50vh;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: blue;
+  transition: .5s;
+
+}
+
+.ShowModelCover {
+  top: 50%;
+}
+
+.ShowModelCover h3 span {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  cursor: pointer;
+  width: 10px;
+  background-color: red;
+}
+
+.en {
+  position: fixed;
+  right: -30px;
+  top: 150px;
+  transform: rotate(-90deg);
+  border: 1px solid black;
+}
+ /* faq */
+/* .faqouter{
+  width: 1320px;
+  margin: auto;
+} */
+
+.faqitems{
+  border: 1px solid rgb(30, 82, 43);
+
+}
+.faqitems h3 {
+  background: #1e8327;
+  color: white;
+  margin: 0;
+  padding: -10px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 30px;
+  font-weight: bold;
+
+}
+
+.faqitems p {
+  padding: 0px;
+  margin: 0;
+  text-align: left;
+  height: 0px;
+  transform: scaleY(0);
+  transition: .5s;
+}
+
+.showfqaans{
+  transform: scaleY(1) !important;
+  height: auto !important;
+  padding: 10px !important;
 }
