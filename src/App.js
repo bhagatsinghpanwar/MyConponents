@@ -14,7 +14,7 @@ import { toast, ToastContainer } from 'react-toastify';
 function App() {
 
 
-
+let n= 2;
 
 
   // let n = 12;
@@ -63,6 +63,7 @@ function App() {
   return (
 
     <div className="App">
+      {n}
 
     {/* notification code start */}
       <ToastContainer/>   
