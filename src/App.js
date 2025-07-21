@@ -7,14 +7,21 @@ import { useState } from 'react';
 import 'react-notifications/lib/notifications.css';
 import { questions } from './Data/FaqQueations';
 import Faqs from './Faqs';
-import { NotificationContainer, NotificationManager } from 'react-notifications';
+// import { NotificationContainer, NotificationManager } from 'react-notifications';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify';
+import { tabs } from './Data/tabs';
 
 function App() {
+  let [activetab, setActivetab] = useState(0)
+  let [activeContent, setActiveContent] = useState(tabs[0])
+
+  let changeData = (index) => {
+    setActivetab(index)
+    setActiveContent(tabs[index])
+  }
 
 
-let n= 2;
 
 
   // let n = 12;
@@ -52,7 +59,7 @@ let n= 2;
   let [faqstatus, setfaqstatus] = useState(questions[0].id)
 
 
-  let NotificationShow = ()=> {
+  let NotificationShow = () => {
     return (
       toast.loading("notification is shown")
     )
@@ -63,12 +70,39 @@ let n= 2;
   return (
 
     <div className="App">
-      {n}
 
-    {/* notification code start */}
-      <ToastContainer/>   
+      <div className='tabsOuter'>
+        <h1>
+          Tabbing
+        </h1>
+
+        <ul>
+
+          {tabs.map((itemsvalue, index) => {
+            return (
+              <li>
+
+                <button onClick={() => changeData(index)} className={activetab===index ? "activeTabs" : ""}>{itemsvalue.title}</button>
+              </li>
+            )
+
+
+          })}
+
+        </ul>
+        <p>
+          {activeContent.description}
+        </p>
+
+      </div>
+
+
+
+
+      {/* notification code start */}
+      <ToastContainer />
       <button onClick={NotificationShow}>Save</button>
-    {/* notification code end */}
+      {/* notification code end */}
 
 
       {/* Start Menu Bar  */}
@@ -121,7 +155,7 @@ let n= 2;
               return (
                 <div className='faqitems mb-4' key={i}>
                   <h3 onClick={() => setfaqstatus(faqitems.id)} >{faqitems.question}</h3>
-                  <p className={faqstatus == faqitems.id ? 'showfqaans' : ''}>{faqitems.answer}</p>
+                  <p className={faqstatus === faqitems.id ? 'showfqaans' : ''}>{faqitems.answer}</p>
                 </div>
               )
 
